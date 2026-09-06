@@ -1,0 +1,37 @@
+name: minitorch
+
+on: [push, pull_request]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -e .
+
+      # ↓↓↓ Раскомментируй задачу, когда напишешь её.
+      # Убери "# " в начале ДВУХ строк сразу (name и run).
+
+      # - name: Task 0.1 - Operators
+      #   run: pytest -m task0_1
+
+      # - name: Task 0.2 - Property testing
+      #   run: pytest -m task0_2
+
+      # - name: Task 0.3 - Higher-order functions
+      #   run: pytest -m task0_3
+
+      # - name: Task 0.4 - Modules
+      #   run: pytest -m task0_4
