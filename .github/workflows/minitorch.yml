@@ -24,8 +24,8 @@ jobs:
       # ↓↓↓ Раскомментируй задачу, когда напишешь её.
       # Убери "# " в начале ДВУХ строк сразу (name и run).
 
-      # - name: Task 0.1 - Operators
-      #   run: pytest -m task0_1
+      - name: Task 0.1 - Operators
+        run: pytest -m task0_1
 
       # - name: Task 0.2 - Property testing
       #   run: pytest -m task0_2
