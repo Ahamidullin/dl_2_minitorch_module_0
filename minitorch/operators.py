@@ -32,7 +32,7 @@ from typing import Callable, Iterable
 # $f(x) = |x - y| < 1e-2$
 
 
-# TODO: Implement for Task 0.1.
+# : Implement for Task 0.1.
 def mul(a: float, b:float) -> float:
     return a * b
 
@@ -100,18 +100,45 @@ def relu_back(a: float, d: float)-> float:
 # - prod: take the product of lists
 
 
-# TODO: Implement for Task 0.3.
+# Implement for Task 0.3.
 
+def map(fn: Callable[[float], float], ls: Iterable[float]) -> Iterable[float]:
+    return [fn(i) for i in ls]
+
+def zipWith(
+    fn: Callable[[float, float], float],
+    ls1: Iterable[float],
+    ls2: Iterable[float],
+) -> Iterable[float]:
+    return[fn(a,b) for a,b in zip(ls1, ls2)]
+
+def reduce(
+    fn: Callable[[float, float], float],
+    ls: Iterable[float],
+    start: float,
+) -> float:
+    st = start 
+    for el in ls:
+        st = fn(st, el)
+    return st
+
+        
 
 # Временные заглушки, чтобы импорт в тестах не падал.
 # Заменить реализациями при выполнении задачи 0.3.
 def negList(ls: Iterable[float]) -> Iterable[float]:
-    raise NotImplementedError("Task 0.3")
+    return map(neg, ls)
+    # raise NotImplementedError("Task 0.3")
 
 
 def addLists(ls1: Iterable[float], ls2: Iterable[float]) -> Iterable[float]:
-    raise NotImplementedError("Task 0.3")
+    return zipWith(add, ls1, ls2)
+    # raise NotImplementedError("Task 0.3")
 
 
 def prod(ls: Iterable[float]) -> float:
-    raise NotImplementedError("Task 0.3")
+    return reduce(mul, ls, 1.0)
+    # raise NotImplementedError("Task 0.3")
+
+def sum(ls: Iterable[float]) -> float:
+    return reduce(add, ls, 0.0)
