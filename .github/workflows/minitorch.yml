@@ -33,5 +33,5 @@ jobs:
       - name: Task 0.3 - Higher-order functions
         run: pytest -m task0_3
 
-      # - name: Task 0.4 - Modules
-      #   run: pytest -m task0_4
+      - name: Task 0.4 - Modules
+        run: pytest -m task0_4
